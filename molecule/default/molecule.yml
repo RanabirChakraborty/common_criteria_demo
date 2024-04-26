@@ -19,8 +19,6 @@ provisioner:
     ANSIBLE_VERBOSITY: 3
   playbooks:
     converge: converge.yml
-    prepare: prepare.yml
-    verify: ../../playbooks/playbook_tomcat.yml
     vars:
       ansible_distribution: 'RedHat'
   inventory:

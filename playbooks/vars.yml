@@ -1,4 +1,5 @@
 ---
+#tomcat vars
 jws_setup: true
 tomcat_version: 9.0.50
 download_url: https://archive.apache.org/dist/tomcat/tomcat-9/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.zip
@@ -8,3 +9,10 @@ jws_home: "{{ jws_install_dir }}/apache-tomcat-{{ tomcat_version }}"
 jws_java_version: 1.8.0
 jws_listen_http_bind_address: 127.0.0.1
 jws_listen_http_port: 8081
+
+#wildfly vars
+wildfly_home: '/opt/wildfly/wildfly-27.0.0.Final'
+wildfly_java_home: '/usr/lib/jvm/jre-openjdk/'
+wildfly_java_package_name: java-11-openjdk-headless
+wildfly_user: 'wildfly'
+wildfly_group: "{{ wildfly_user }}"

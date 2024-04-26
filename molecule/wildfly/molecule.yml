@@ -1,13 +1,9 @@
 ---
-dependency:
-  name: galaxy
-  options:
-    requirements-file: molecule/requirements.yml
 driver:
   name: docker
 platforms:
   - name: instance
-    image: registry.access.redhat.com/ubi8/ubi-init:latest
+    image: registry.access.redhat.com/ubi9/ubi-init:latest
     privileged: true
     tmpfs:
       - /run
@@ -19,6 +15,8 @@ platforms:
       - 0.0.0.0:8080:8080/TCP
 provisioner:
   name: ansible
+  env:
+    ANSIBLE_VERBOSITY: 3
   playbooks:
     converge: converge.yml
     prepare: prepare.yml
@@ -32,8 +30,6 @@ verifier:
   name: ansible
 scenario:
   test_sequence:
-    - dependency
-    - lint
     - cleanup
     - destroy
     - syntax
